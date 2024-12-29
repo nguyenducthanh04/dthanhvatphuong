@@ -130,8 +130,6 @@
   margin: 50px 20px;
 }
 
-
-
 .heart img {
   width: 200px; /* Kích thước ban đầu */
   animation: heartbeat 1s infinite; /* Hiệu ứng nhịp đập */

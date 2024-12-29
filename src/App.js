@@ -11,6 +11,10 @@ import video2 from "../src/img/video2.mp4"
 import video3 from "../src/img/video3.mp4"
 import video4 from "../src/img/video4.mp4"
 import video5 from "../src/img/video5.mp4"
+import video6 from "../src/img/video6.mp4"
+import video7 from "../src/img/video7.mp4"
+import video8 from "../src/img/video8.mp4"
+
 
 function App() {
   const [inputPassword, setInputPassword] = useState(""); 
@@ -525,6 +529,38 @@ function App() {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen>
         </iframe>
+             </div>
+             <div className='space'></div>
+             <div className='video-container'>
+    <iframe 
+        width="300" 
+        height="300" 
+        src="https://www.youtube.com/embed/iMmeoF0dj28" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+<div className='space'></div>
+             <div className='video-container'>
+             <video controls width={"300px"} height={"300px"}>
+               <source src={video6} type="video/mp4" />
+               Trình duyệt của bạn không hỗ trợ video.
+             </video>
+             </div>
+             <div className='space'></div>
+             <div className='video-container'>
+             <video controls width={"300px"} height={"300px"}>
+               <source src={video7} type="video/mp4" />
+               Trình duyệt của bạn không hỗ trợ video.
+             </video>
+             </div>
+             <div className='space'></div>
+             <div className='video-container'>
+             <video controls width={"300px"} height={"300px"}>
+               <source src={video8} type="video/mp4" />
+               Trình duyệt của bạn không hỗ trợ video.
+             </video>
              </div>
                </div>
              </div>
