@@ -34,6 +34,7 @@ function App() {
   const timeDiff = Math.abs(currentDate - startDate); 
   const dayCount = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
   console.log("Yeu duoc", dayCount, "ngay");
+  console.log("Anh yêu Nguyễn Thị Phường nhiều lắmmmmmmmmmm")
   
   const data = [
     {
@@ -414,6 +415,39 @@ function App() {
       ]
     },
  ]
+ const dataKoreanSmall = [
+  {
+    "url": "raw.githubusercontent.com",
+    "id": 77,
+    "content": "Em yêu ở Hàn Quốc nè",
+      "images": [
+        {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img113.jpg",
+          "id": "1"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img114.jpg",
+          "id": "1"
+        },{
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img115.jpg",
+          "id": "1"
+        },{
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img116.jpg",
+          "id": "1"
+        },
+      ],
+      "imagesTall": [
+        {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img117.jpg",
+          "id": "1"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img118.jpg",
+          "id": "1"
+        }
+      ]
+    },
+ ]
   return (
     <div className="App">
       {
@@ -563,6 +597,19 @@ function App() {
              </video>
              </div>
                </div>
+             </div>
+             <div className='embe-in-korean'>
+           {dataKoreanSmall?.map((datakoreansmall) => (
+               <div className='content-korea' key={datakoreansmall.id}>
+               <p>{datakoreansmall.content}</p>
+               {datakoreansmall.images?.map((hi) => (
+               <img key={hi.id} src={hi.url} className='img-small'></img>
+               ))}
+               {datakoreansmall.imagesTall?.map((imgtall) => (
+                <img key={imgtall.id} src={imgtall.url} className='img-tall'></img>
+               ))} 
+             </div>
+           ))}
              </div>
              <div className='xiang'>
                <em>Anh mong em sẽ luôn đồng hành và ở bên anh mãi về sau bởi vì em biết đó anh rất trân trọng em cũng như mối quan hệ này của hai taaaa 🥰. Cũng mong rằng mỗi khi em bé buồn hay chán nản em bé có thể tâm sự cùng anh và vào lại đây để xem lại những kỉ niệm đẹp của đôi taa 🥰</em>

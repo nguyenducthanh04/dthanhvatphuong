@@ -80,6 +80,10 @@
 .title-img-all {
   margin-bottom: 50px;
 }
+.embe-in-korean {
+  margin: 100px 0px;
+}
+.content-korea p,
 .emiu-content p,
 .content p {
   font-size: 1.4rem;
@@ -134,7 +138,16 @@
   width: 200px; /* Kích thước ban đầu */
   animation: heartbeat 1s infinite; /* Hiệu ứng nhịp đập */
 }
-
+.img-small {
+  width: 280px;
+  height: 280px;
+  padding: 10px;
+}
+.img-tall {
+  width: 300px;
+  height: 380px;
+  padding: 10px;
+}
 @keyframes heartbeat {
   0%, 100% {
     transform: scale(1); /* Kích thước ban đầu */
