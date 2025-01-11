@@ -29,12 +29,21 @@ function App() {
       toast.error("Mật khẩu không đúng!");
     }
   };
+  function convertDaysToMonthsAndDays(dayCount) {
+    const daysInMonth = 30; 
+    const months = Math.floor(dayCount / daysInMonth);
+    const days = dayCount % daysInMonth;
+  
+    return `${months} tháng ${days} ngày`;
+  }
   const startDate = new Date("2024-09-17");
   const currentDate = new Date();
   const timeDiff = Math.abs(currentDate - startDate); 
   const dayCount = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
+  const resultDate = convertDaysToMonthsAndDays(dayCount);
   console.log("Yeu duoc", dayCount, "ngay");
   console.log("Anh yêu Nguyễn Thị Phường nhiều lắmmmmmmmmmm")
+  console.log(resultDate);
   
   const data = [
     {
@@ -488,6 +497,7 @@ function App() {
                  <div className='heart'>
                   <p>{dayCount} ngày</p>
                    <img src={Heart}></img>
+                   <p>{resultDate}</p>
                  </div>
                  <div className='honey'>
                    <img src={Em}></img>
