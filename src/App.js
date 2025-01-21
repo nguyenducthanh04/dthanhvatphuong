@@ -50,7 +50,7 @@ const Button = styled.button`
   background: none;
   border: none;
   color: #ff73af;
-  font-size: 20px;
+  font-size: 15px;
   cursor: pointer;
   margin: 0 5px;
 
@@ -62,13 +62,6 @@ const Button = styled.button`
     color: #555;
     cursor: not-allowed;
   }
-`;
-
-const Progress = styled.input`
-  flex-grow: 1;
-  margin: 0 10px;
-  cursor: pointer;
-  color: #ff73af
 `;
 
   const startDate = new Date("2024-09-17");
