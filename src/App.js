@@ -599,7 +599,7 @@ const handlePrevious = () => {
              <Button onClick={handlePlayPause}>{isPlaying ? "❚❚" : "▶"}</Button>
              <Button onClick={handlePrevious}>⏮</Button>
              <Button onClick={handleNext}>⏭</Button>
-             <h3>{songs[currentSongIndex].name}</h3>
+             <p>{songs[currentSongIndex].name}</p>
              </MusicPlayerContainer>
              <div>
               </div>
