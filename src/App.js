@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import { useState } from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import styled from "styled-components";
 import './App.css';
 import Anh from "../src/img/anh.jpg"
 import Em from "../src/img/emm.jpg"
@@ -14,7 +15,8 @@ import video5 from "../src/img/video5.mp4"
 import video6 from "../src/img/video6.mp4"
 import video7 from "../src/img/video7.mp4"
 import video8 from "../src/img/video8.mp4"
-
+import alohakorea from "../src/img/aloha.mp3"
+import alohavn from "../src/img/aloha-loi-viet.mp3"
 
 function App() {
   const [inputPassword, setInputPassword] = useState(""); 
@@ -36,6 +38,39 @@ function App() {
   
     return `${months} tháng ${days} ngày`;
   }
+  const MusicPlayerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background: #ffa4ce;
+  border-radius: 8px;
+  width: 250px;
+`;
+
+const Button = styled.button`
+  background: none;
+  border: none;
+  color: #ff73af;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 0 5px;
+
+  &:hover {
+    color: red;
+  }
+
+  &:disabled {
+    color: #555;
+    cursor: not-allowed;
+  }
+`;
+
+const Progress = styled.input`
+  flex-grow: 1;
+  margin: 0 10px;
+  cursor: pointer;
+  color: #ff73af
+`;
+
   const startDate = new Date("2024-09-17");
   const currentDate = new Date();
   const timeDiff = Math.abs(currentDate - startDate); 
@@ -481,6 +516,44 @@ function App() {
       ]
     },
  ]
+const songs = [
+  { name: "Aloha (Lời việt)", src: alohavn },
+  { name: "Aloha", src: alohakorea },
+];
+
+// Trạng thái
+const [currentSongIndex, setCurrentSongIndex] = useState(0); // Index bài hát hiện tại
+const [audio, setAudio] = useState(new Audio(songs[0].src)); // Đối tượng audio
+const [isPlaying, setIsPlaying] = useState(false); // Trạng thái phát nhạc
+// Xử lý phát/dừng nhạc
+const handlePlayPause = () => {
+  if (isPlaying) {
+    audio.pause();
+  } else {
+    audio.play();
+  }
+  setIsPlaying(!isPlaying);
+};
+
+// Chuyển bài hát
+const changeSong = (index) => {
+  audio.pause(); // Dừng bài hát hiện tại
+  const newAudio = new Audio(songs[index].src); // Tạo audio mới
+  setAudio(newAudio); // Cập nhật audio
+  setCurrentSongIndex(index); // Cập nhật index
+  setIsPlaying(true); // Bắt đầu phát nhạc
+  newAudio.play(); // Phát nhạc
+};
+
+const handleNext = () => {
+  const nextIndex = (currentSongIndex + 1) % songs.length; // Vòng lặp danh sách
+  changeSong(nextIndex);
+};
+
+const handlePrevious = () => {
+  const prevIndex = (currentSongIndex - 1 + songs.length) % songs.length; // Vòng lặp danh sách
+  changeSong(prevIndex);
+};
   return (
     <div className="App">
       {
@@ -520,6 +593,16 @@ function App() {
                    <h3>Đây Là Em</h3>
                  </div>
                </div>
+             </div>
+             <div style={{display: "flex", justifyContent: "center", marginTop:"40px"}}>
+             <MusicPlayerContainer>
+             <Button onClick={handlePlayPause}>{isPlaying ? "❚❚" : "▶"}</Button>
+             <Button onClick={handlePrevious}>⏮</Button>
+             <Button onClick={handleNext}>⏭</Button>
+             <h3>{songs[currentSongIndex].name}</h3>
+             </MusicPlayerContainer>
+             <div>
+              </div>
              </div>
              <div>
               <p className="loi-anh-noi">Em bé à, anh chưa từng nghĩ rằng anh sẽ gặp được một người con gái mà khiến anh yêu say đắm đến vậy đâu, là em đấy, chính em là người đã cho anh có được cảm giác yêu và thương một người con gái bằng cả trái tim của mình, và cũng chính em là người đã khiến cho anh tin tưởng hơn vào tình yêu, anh luôn được em bé quan tâm lo lắng và chăm sóc cho anh, anh cảm thấy rất may mắn, từ khi yêu em trong đầu anh không một ngày nào anh không nghĩ đến em, ngay cả thời gian chúng ta được ở gần nhau cho đến hiện giờ chúng ta tạm xa nhau một chút xíu, lúc nào cũng chỉ nghĩ đến em, sáng nào cũng vậy mỗi khi anh thức dậy anh đều vào đi vào lại messenger để xem có tin nhắn nào của em bé hay không, để xem em bé của anh đã dậy chưa, càng ngày anh càng yêu em bé và cũng ngày càng sợ rằng một ngày nào đó em bé không ở bên anh nữa, anh rất sợ, anh luôn muốn bản thân cố gắng để làm một người yêu thương em hết lòng, làm một người mà em có thể tin tưởng ở bên, anh luôn cố gắng để người khác phải ghen tị với em, anh luôn muốn bên cạnh em bảo vệ và chăm sóc em nhưng có lẽ anh phải đợi cho đến sau này để bù đắp lại hết những gì mà hiện giờ anh không làm được cho em bé của anh, anh không biết sao nhưng anh không giống bất kì một thằng con trai nào, khi anh yêu em anh luôn muốn rằng em phải hạnh phúc khi yêu anh và thật sự anh rất muốn em sẽ ở bên anh mãi về sau này, anh không muốn mất em, chẳng muốn xa em chút nào cả, từ khi em bé bay sang Hàn anh thấy nhớ em bé rất nhiều, anh khóc rất nhiều, khóc vì nhớ em, khóc vì anh không làm được gì mỗi khi em kêu mệt, anh chỉ biết động viên em qua những lời nói. Anh xin lỗi vì không giúp được gì cho em bé ở thời điểm hiện tại, anh mong em bé sẽ yêu anh mãi, để sau này anh được bù đắp cho em bé những gì mà hiện giờ anh không làm được cho em, mong em hiểu cho anh, anh yêu em bé nhiều lắm 🥰</p>
