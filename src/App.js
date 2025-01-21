@@ -17,6 +17,11 @@ import video7 from "../src/img/video7.mp4"
 import video8 from "../src/img/video8.mp4"
 import alohakorea from "../src/img/aloha.mp3"
 import alohavn from "../src/img/aloha-loi-viet.mp3"
+import prev from "../src/img/prev.svg"
+import next from "../src/img/next.svg"
+import play from "../src/img/play.svg"
+import pause from "../src/img/pause.svg"
+
 
 function App() {
   const [inputPassword, setInputPassword] = useState(""); 
@@ -43,14 +48,14 @@ function App() {
   align-items: center;
   background: #ffa4ce;
   border-radius: 8px;
-  width: 250px;
+  width: 350px;
+  height: 100px;
 `;
 
 const Button = styled.button`
   background: none;
   border: none;
   color: #ff73af;
-  font-size: 20px;
   cursor: pointer;
   margin: 0 5px;
 
@@ -589,9 +594,9 @@ const handlePrevious = () => {
              </div>
              <div style={{display: "flex", justifyContent: "center", marginTop:"40px"}}>
              <MusicPlayerContainer>
-             <Button onClick={handlePlayPause}>{isPlaying ? "❚❚" : "▶"}</Button>
-             <Button onClick={handlePrevious}>⏮</Button>
-             <Button onClick={handleNext}>⏭</Button>
+             <Button onClick={handlePrevious}><img src={prev}></img></Button>
+             <Button onClick={handlePlayPause}>{isPlaying ? <img src={pause}></img> : <img src={play}></img>}</Button>
+             <Button onClick={handleNext}><img src={next}></img></Button>
              <p>{songs[currentSongIndex].name}</p>
              </MusicPlayerContainer>
              <div>
