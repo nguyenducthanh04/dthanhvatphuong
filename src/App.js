@@ -50,7 +50,7 @@ const Button = styled.button`
   background: none;
   border: none;
   color: #ff73af;
-  font-size: 15px;
+  font-size: 20px;
   cursor: pointer;
   margin: 0 5px;
 
