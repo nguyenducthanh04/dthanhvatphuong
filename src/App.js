@@ -22,7 +22,7 @@ import prev from "../src/img/prev.svg"
 import next from "../src/img/next.svg"
 import play from "../src/img/play.svg"
 import pause from "../src/img/pause.svg"
-
+import { Modal, Button } from "react-bootstrap";
 
 function App() {
   const [inputPassword, setInputPassword] = useState(""); 
@@ -511,7 +511,46 @@ const Button = styled.button`
         {
           "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img124.jpg",
           "id": "1"
-        }
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img125.jpg",
+          "id": "1"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img126.jpg",
+          "id": "1"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img127.jpg",
+          "id": "1"
+        },  {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img128.jpg",
+          "id": "1"
+        },  {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img129.jpg",
+          "id": "1"
+        },  {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img130.jpg",
+          "id": "1"
+        },  {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img131.jpg",
+          "id": "1"
+        },  {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img132.jpg",
+          "id": "1"
+        },  {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img133.jpg",
+          "id": "1"
+        },  {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img134.jpg",
+          "id": "1"
+        },  {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img135.jpg",
+          "id": "1"
+        },  {
+          "url": "https://raw.githubusercontent.com/nguyenducthanh04/server-image/main/image/img136.jpg",
+          "id": "1"
+        },
       ]
     },
  ]
@@ -554,6 +593,22 @@ const handlePrevious = () => {
   const prevIndex = (currentSongIndex - 1 + songs.length) % songs.length; // Vòng lặp danh sách
   changeSong(prevIndex);
 }
+const [showListModal, setShowListModal] = useState(false);
+  const [showDetailModal, setShowDetailModal] = useState(false);
+  const [selectedLetter, setSelectedLetter] = useState(null);
+
+  // Danh sách các bức thư
+  const letters = [
+    { id: 1, title: "Ngày 08/02/2025", content: "Nay sinh nhật em bé, anh chúc em bé tuổi mới xinh đẹp hơn, thật nhiều niềm vui hạnh phúc, học tập ngày càng tốt hơn có được công việc ổn định hơn để em bé của anh bớt áp lực hơn với cuộc sống bên đó, anh thật sự xin lỗi em bé vì đã nói linh tinh lăng nhăng khiến em bé tức giận, anh sẽ sửa ngay cái tính suy nghĩ điên rồ này của anh để sẽ không có lần nào làm em bé của anh phải buồn nữa, anh sẽ cố gắng hết mình để đạt được mục tiêu đón em qua Đài Loan chơi cùng với anh, cũng cố gắng hết mình để có được một công việc ổn định tài chính để sẵn sàng cưới em bé về làm vợ, anh yêu em bé nhiều lắm, cảm ơn em bé rất nhiều❤️" },
+    // { id: 2, title: "Thư 2", content: "Nội dung thư 2 đây..." },
+    // { id: 3, title: "Thư 3", content: "Nội dung thư 3 đây..." },
+  ];
+
+  // Mở modal nội dung thư
+  const openDetailModal = (letter) => {
+    setSelectedLetter(letter);
+    setShowDetailModal(true);
+  };
   return (
     <div className="App">
       {
@@ -565,6 +620,7 @@ const handlePrevious = () => {
             placeholder="Nhập mật khẩu"
             value={inputPassword}
             onChange={(e) => setInputPassword(e.target.value)}
+            style={{height: "32px"}}
           />
           <button onClick={handleCheckPassword}>Xác nhận</button>
         </div>
@@ -594,6 +650,48 @@ const handlePrevious = () => {
                  </div>
                </div>
              </div>
+             <div className="container mt-5">
+             <Button variant="primary" className="custom-big-button" onClick={() => setShowListModal(true)}>
+  📩 Thư gửi em bé
+</Button>
+
+      {/* Modal danh sách thư */}
+      <Modal show={showListModal} onHide={() => setShowListModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>📜 Thư của Đức Thanh</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {letters.map((letter) => (
+            <Button
+              key={letter.id}
+              variant="light"
+              onClick={() => openDetailModal(letter)}
+              className="d-block w-100 text-start mb-2"
+            >
+              {letter.title}
+            </Button>
+          ))}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowListModal(false)}>
+            Đóng
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal nội dung thư */}
+      <Modal show={showDetailModal} onHide={() => setShowDetailModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>📩 {selectedLetter?.title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{selectedLetter?.content}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowDetailModal(false)}>
+            Đóng
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
              <div style={{display: "flex", justifyContent: "center", marginTop:"40px"}}>
              <MusicPlayerContainer>
              <Button onClick={handlePrevious}><img src={prev}></img></Button>
