@@ -600,7 +600,7 @@ const [showListModal, setShowListModal] = useState(false);
   // Danh sách các bức thư
   const letters = [
     { id: 1, title: "Ngày 08/02/2025", content: "Nay sinh nhật em bé, anh chúc em bé tuổi mới xinh đẹp hơn, thật nhiều niềm vui hạnh phúc, học tập ngày càng tốt hơn có được công việc ổn định hơn để em bé của anh bớt áp lực hơn với cuộc sống bên đó, anh thật sự xin lỗi em bé vì đã nói linh tinh lăng nhăng khiến em bé tức giận, anh sẽ sửa ngay cái tính suy nghĩ điên rồ này của anh để sẽ không có lần nào làm em bé của anh phải buồn nữa, anh sẽ cố gắng hết mình để đạt được mục tiêu đón em qua Đài Loan chơi cùng với anh, cũng cố gắng hết mình để có được một công việc ổn định tài chính để sẵn sàng cưới em bé về làm vợ, anh yêu em bé nhiều lắm, cảm ơn em bé rất nhiều❤️" },
-    // { id: 2, title: "Thư 2", content: "Nội dung thư 2 đây..." },
+    { id: 2, title: "Ngày 09/02/2025", content: "Hôm nay em bé chuyển ra trọ mới nè, mong rằng em bé sẽ luôn suôn sẻ ở chỗ ở mới này, anh sẽ cố gắng để sau này cho em bé cuộc sống tốt hơn, anh yêu em nhiều lắm" },
     // { id: 3, title: "Thư 3", content: "Nội dung thư 3 đây..." },
   ];
 
@@ -637,7 +637,7 @@ const [showListModal, setShowListModal] = useState(false);
                <div className="meandhoney">
                  <div className='me'>
                    <img src={Anh}></img>
-                   <h3>Đây Là Tớ</h3>
+                   <h3>Anh</h3>
                  </div>
                  <div className='heart'>
                   <p>{dayCount} ngày</p>
@@ -646,7 +646,7 @@ const [showListModal, setShowListModal] = useState(false);
                  </div>
                  <div className='honey'>
                    <img src={Em}></img>
-                   <h3>Đây Là Em</h3>
+                   <h3>Em bé</h3>
                  </div>
                </div>
              </div>
